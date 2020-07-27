@@ -1,0 +1,24 @@
+name: Conformity-Template-Scanner-GitHubAction
+
+on: 
+  push:
+    paths: 
+      - actionstest.yaml
+
+jobs:      
+    CloudFormation-Scan:
+       runs-on: ubuntu-latest
+       steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+        - name: Cloud One Conformity Pipeline Scanner
+          uses: raphabot/conformity-template-scanner-pipeline@v1.0.0
+          env:
+            cc_apikey: ${{ secrets.apikey }}
+            maxExtreme: 0
+            maxVeryHigh: 0
+            maxHigh: 0
+            maxMedium: 10
+            maxLow: 15
+            cc_region: us-west-2
+            templatePath: actionstest.yaml
