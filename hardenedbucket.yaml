@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
   S3Bucket:
-    Type: 'AWS::S3::Bucket'
+    Type: AWS::S3::Bucket
     Properties:
       VersioningConfiguration:
         Status: Enabled
@@ -37,7 +37,7 @@ Resources:
         - Key: Name
           Value: Challenge-Bucket
   S3BucketPolicy:
-    Type: 'AWS::S3::BucketPolicy'
+    Type: AWS::S3::BucketPolicy
     Properties:
       Bucket: !Ref S3Bucket
       PolicyDocument:
